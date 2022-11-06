@@ -13,6 +13,7 @@
     "rules": {
         "prettier/prettier": "error",
         "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
         "no-var": "error",
         "indent": ["error", 4],
         "no-multi-spaces": "error",

@@ -17,3 +17,5 @@ const PORT = process.env['PORT'];
 app.listen(PORT, (): void => {
     log.info(`Express server listening on port ${PORT}, with PID: ${process.pid}`);
 });
+
+require('./bot');
