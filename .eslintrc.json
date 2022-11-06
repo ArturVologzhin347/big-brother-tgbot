@@ -1,6 +1,5 @@
 {
     "env": {
-        "browser": true,
         "commonjs": true,
         "es2021": true
     },
@@ -13,8 +12,9 @@
     },
     "rules": {
         "prettier/prettier": "error",
+        "@typescript-eslint/no-unsafe-member-access": "off",
         "no-var": "error",
-        "indent": "error",
+        "indent": ["error", 4],
         "no-multi-spaces": "error",
         "space-in-parens": "error",
         "no-multiple-empty-lines": "error",

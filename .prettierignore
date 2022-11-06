@@ -3,3 +3,4 @@ bin/
 tsconfig.json
 yarn.lock
 .gitignore
+*log
