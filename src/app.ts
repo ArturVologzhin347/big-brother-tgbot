@@ -12,8 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// TODO 
-const PORT = process.env['PORT'] || 5050;
+const PORT = process.env['PORT'];
 
 app.listen(PORT, (): void => {
     log.info(`Express server listening on port ${PORT}, with PID: ${process.pid}`);

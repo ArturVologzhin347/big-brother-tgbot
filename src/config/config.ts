@@ -6,7 +6,7 @@ config();
 declare global {
     namespace NodeJS {
         interface ProcessEnv {
-            PORT: number;
+            readonly PORT: number;
         }
     }
 }
