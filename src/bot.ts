@@ -1,16 +1,33 @@
 import TelegramBot from 'node-telegram-bot-api';
 import setupErrorHandlers from './bot/errorHandlers';
+import log4js from 'log4js';
 
-const TOKEN = process.env['TOKEN']!;
+const log = log4js.getLogger('bot.ts');
 
-const bot = new TelegramBot(TOKEN, { polling: true });
+const TOKEN = '5604952344:AAF82wRbf7grHvsoWHcYH6-WlFqJQUjBqKs'; // TODO WEBHOOK!
+
+const bot = new TelegramBot(TOKEN, { polling: { interval: 20, autoStart: false } });
 
 setupErrorHandlers(bot);
 
-// bot.on('message', (message: TelegramBot.Message) => {
-// const chatId = message.chat.id;
-//
-// bot.sendMessage(chatId, 'Hello').catch(() => {});
-// });
+const chats: number[] = [];
 
-export default bot;
+bot.onText(/\/start/, (message: TelegramBot.Message) => {
+    void (async () => {
+        const chatId = message.chat.id;
+        chats.push(chatId);
+        await bot.sendMessage(chatId, 'Subscribe to notifications, target: all');
+    })();
+});
+
+const polling: () => void = () => {
+    void (async () => {
+        await bot.startPolling().then(() => {
+            log.info('Start TG Bot polling...');
+        });
+    })();
+};
+
+polling();
+
+export { bot, chats };
