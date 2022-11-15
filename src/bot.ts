@@ -15,6 +15,7 @@ const chats: number[] = [];
 bot.onText(/\/start/, (message: TelegramBot.Message) => {
     void (async () => {
         const chatId = message.chat.id;
+        console.log(chatId);
         chats.push(chatId);
         await bot.sendMessage(chatId, 'Subscribe to notifications, target: all');
     })();
