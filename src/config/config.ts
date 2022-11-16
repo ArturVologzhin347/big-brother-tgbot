@@ -7,8 +7,9 @@ declare global {
     namespace NodeJS {
         interface ProcessEnv {
             readonly PORT: number;
-            readonly URL: string;
-            readonly TOKEN: string;
+            readonly TGBOT_URL: string;
+            readonly SERVER_URL: string;
+            readonly TELEGRAM_TOKEN: string;
         }
     }
 }
