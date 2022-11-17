@@ -1,9 +1,7 @@
 import { Router } from 'express';
-import { notifyAboutSkudEventHanlder } from '../handler/apiHandlers';
+import { sendNotification } from '../handler/apiHandlers';
 const router = Router();
 
-// router.use('/api', api);
-
-router.post('/skud', notifyAboutSkudEventHanlder);
+router.post('/notification/send', sendNotification);
 
 export default router;

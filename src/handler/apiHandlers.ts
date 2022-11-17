@@ -1,13 +1,16 @@
 import Handler from './Handler';
 
-import SkudEvent from '../model/SkudEvent';
-import { notifyAboutSkudEvent } from '../service/skudEventService';
+import Notification from '../model/Notification';
+import log4js from 'log4js';
+import { handleNotification } from '../service/notificationService';
 
-const notifyAboutSkudEventHanlder: Handler = async (req, res, next) => {
-    const event: SkudEvent = req.body;
-    console.log(event);
-    notifyAboutSkudEvent(event);
+const logger = log4js.getLogger('apiHandlers.ts');
+
+const sendNotification: Handler = async (req, res, next) => {
+    const notification: Notification = req.body;
+    logger.info(notification);
+    handleNotification(notification);
     return res.status(200).json(null);
 };
 
-export { notifyAboutSkudEventHanlder };
+export { sendNotification };
