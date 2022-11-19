@@ -15,7 +15,6 @@
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
         "no-var": "error",
-        "indent": ["error", 4],
         "no-multi-spaces": "error",
         "space-in-parens": "error",
         "no-multiple-empty-lines": "error",
