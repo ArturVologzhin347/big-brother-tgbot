@@ -10,7 +10,7 @@ const sendNotification: (
     req: Request<core.ParamsDictionary, any, Notification>,
     res: Response,
     next: NextFunction,
-) => Promise<any> = async (req, res, next) => {
+) => void = (req, res, next) => {
     const notification = req.body;
     logger.info(notification);
     handleNotification(notification);
