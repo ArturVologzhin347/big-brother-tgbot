@@ -7,7 +7,7 @@ const handleNotification: (notification: Notification) => void = notification =>
 
     switch (notification.type) {
         case 'SKUD_EVENT': {
-            const event: SkudEvent = notification.payload;
+            const event: SkudEvent = JSON.parse(notification.payload);
             sendSkudEvent(chat, event);
             break;
         }

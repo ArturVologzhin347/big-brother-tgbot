@@ -32,7 +32,7 @@ app.listen(PORT, (): void => {
     polling();
 
     botHasBeenRaised()
-        .then(() => {
+        .then(async () => {
             logger.info('Server has been successfully notified about starting Telegram Bot');
         })
         .catch(error => {

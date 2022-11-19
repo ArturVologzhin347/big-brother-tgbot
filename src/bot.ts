@@ -1,5 +1,5 @@
 import TelegramBot from 'node-telegram-bot-api';
-import setupErrorHandlers from './bot/errorHandlers';
+import handlers from './bot/handlers';
 import log4js from 'log4js';
 import axios from 'axios';
 
@@ -11,13 +11,9 @@ const WEBHOOK_URL = `${process.env['TGBOT_URL']}/webhook/${TOKEN}`;
 
 const bot = new TelegramBot(TOKEN, { polling: { interval: 20, autoStart: false } });
 
-setupErrorHandlers(bot);
-
-bot.onText(/\/start/, (message: TelegramBot.Message) => {
-    void (async () => {
-        console.log(message.chat.id);
-    })();
-});
+void (async () => {
+    await handlers.setup(bot);
+})();
 
 const polling: () => void = () => {
     void (async () => {
