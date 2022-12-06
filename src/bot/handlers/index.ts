@@ -14,8 +14,6 @@ const setup = async function (bot: TelegramBot): Promise<void> {
     } catch (e) {
         return await Promise.reject(e);
     }
-
-    return await Promise.resolve();
 };
 
 export default { setup };

@@ -11,7 +11,6 @@ import { polling } from './bot';
 import { botHasBeenRaised } from './service/raisedService';
 
 const logger = log4js.getLogger('app.ts');
-
 const app = express();
 
 app.use(cors());

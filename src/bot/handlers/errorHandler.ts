@@ -9,10 +9,6 @@ const setupErrorHandler = function (bot: TelegramBot): void {
             void (async () => {
                 console.log(error);
                 logger.error('Telegram API polling error!');
-
-                // await bot.startPolling({ restart: true }).then(() => {
-                // log.warn('Try restart TG Bot polling...');
-                // });
             })();
         });
     })();

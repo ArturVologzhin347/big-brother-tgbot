@@ -22,8 +22,6 @@ enum ClientStatus {
     NOT_VERIFIED = 'NOT_VERIFIED',
 }
 
-// TODO refactor
-
 const registration = async function (chat: number, phoneNumber: string | undefined): Promise<any> {
     const rejectInternal = async (): Promise<RegistrationErrorCode> => {
         return await Promise.reject(RegistrationErrorCode.INTERNAL);
@@ -31,9 +29,6 @@ const registration = async function (chat: number, phoneNumber: string | undefin
 
     return await axios
         .post<ServerError>('/auth/registration', { chat, phoneNumber })
-        .then(async () => {
-            return await Promise.resolve();
-        })
         .catch(async (err: AxiosError<ServerError, any>) => {
             const response = err.response;
 
@@ -58,9 +53,6 @@ const verification = async function (chat: number, code: string | undefined): Pr
 
     return await axios
         .post<ServerError>('/auth/verification', { chat, code })
-        .then(async () => {
-            return await Promise.resolve();
-        })
         .catch(async (err: AxiosError<ServerError, any>) => {
             const response = err.response;
 
